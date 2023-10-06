@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+
+    <form onsubmit="addTodo(event)">
+
+      <input type="text" name="title" required>
+      <button>add</button>
+
+    </form>
+    <ul id="todos">
+    </ul>
+
+
+    <script>
+      let todos = [];
+      let stores_todos = JSON.parse(localStorage.getItem('todos'));
+      todos = stores_todos;
+
+
+      function convertTodoList() {
+        let str = "";
+        todos.forEach((element) => {
+          str += `<li>${element} <button onclick = 'deleteTodos(100)'> Del </button> </li>`
+        })
+        document.getElementById("todos").innerHTML = str;
+      }
+
+      convertTodoList();
+
+      const addTodo = (event) => {
+        event.preventDefault();
+
+        // console.log(event.target.title.value)
+        todos.push(event.target.title.value)
+
+        convertTodoList();
+
+
+        event.target.title.value = '';
+
+        localStorage.setItem('todos', JSON.stringify(todos))
+      }
+
+      function deleteTodos(index) {
+        console.log("delete todo", index)
+        /* 
+        step-1: find out the index of element which is about to get deleted
+        step-2: filter out the element of existing todos // hint: temp array, if else ,push method or filter method
+        step-3: set the todos in localstorage for filtered todos
+        step-4: convert array to list
+        */
+      }
+
+
+
+    </script>
+
+  </body>
+
+</html>

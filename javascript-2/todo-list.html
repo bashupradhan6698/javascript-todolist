@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+
+    <form onsubmit="addTodo(event)">
+
+      <input type="text" name="title">
+      <button>add</button>
+    </form>
+
+    <hr>
+
+    <ul id="todos">
+      <li>js</li>
+      <li>css</li>
+    </ul>
+
+
+
+    <script>
+      let todos = [];
+
+      const addTodo = (event) => {
+        event.preventDefault();
+
+        // console.log(event.target.title.value)
+        todos.push(event.target.title.value);
+        let str = "";
+        todos.forEach((element) => {
+          str += `<li>${element} <button></button></li>`
+
+        })
+        document.getElementById("todos").innerHTML = str;
+        event.target.title.value = '';
+
+
+      }
+
+
+
+
+
+    </script>
+
+  </body>
+
+</html>

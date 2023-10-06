@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body id="bdy">
+    <button id="btn">Change BG color</button>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui quod, nulla sit omnis dolore illum quidem esse est
+      autem ad distinctio non, dolor voluptate laudantium vitae ullam eligendi repellendus quasi.</p>
+    <script>
+
+      document.getElementById('btn').addEventListener('click', () => {
+        console.log('change');
+
+
+        /* random color generator */
+        // let red = Math.floor(Math.random() * 256)
+        // let green = Math.floor(Math.random() * 256)
+        // let blue = Math.floor(Math.random() * 256)
+
+        // document.getElementById('bdy').style.backgroundColor = `rgb(${red},${green},${blue})`;
+
+
+        let colors = ['red', 'green', 'blue'];
+
+        document.getElementById('bdy').style.backgroundColor = colors[Math.floor(Math.random() * 3)]
+        document.getElementById('bdy').style.color = 'white';
+
+
+
+      })
+    </script>
+  </body>
+
+</html>

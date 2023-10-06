@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      th,
+      td {
+        border: 1px solid;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table>
+      <tr>
+        <th>name</th>
+        <th>username</th>
+      </tr>
+
+      <tbody id="tbody">
+        <tr>
+          <td>ram</td>
+          <td>ram123</td>
+        </tr>
+
+        <tr>
+          <td>shyam</td>
+          <td>shyam123</td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => response.json())
+        .then((users) => {
+          let dataOfUsers = document.getElementById("tbody");
+          let str = dataOfUsers.innerHTML;
+          users.forEach((element) => {
+            str += `<tr><td>${element.name}</td><td>${element.username}</td></tr>`;
+          });
+          dataOfUsers.innerHTML = str;
+          //users_array
+          //convert array to string of <tr> . <td>name</td> <td>username</td>
+          //inner.HTML convert' <tr>...' to acutal <tr>
+        });
+    </script>
+  </body>
+</html>
